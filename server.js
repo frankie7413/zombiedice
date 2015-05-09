@@ -322,6 +322,11 @@ nspGame.on ('connection', function(socket) {
 		var index = findIndex(gameclients, "sid", socket.id);
 		var username = gameclients[index].username;
 		nspGame.connected[sid].emit("handshake", socket.id, username, 1);
+
+		///testing challenge player goes first
+		//nspGame.emit('Player', sid, username);
+		nspGame.connected[sid].emit('Player', sid, username);
+		nspGame.connected[sid].emit('disable', sid);
 	});
 
 	socket.on('diceroll', function(data){
@@ -330,11 +335,21 @@ nspGame.on ('connection', function(socket) {
 		nspGame.emit('dicerollresult', data, images);
 	});
 
-	socket.on('stop and score', function(sid) {
+
+	socket.on('stopOther', function(sid){
+		nspGame.connected[sid].emit('disable', sid);
+	});
+
+	socket.on('stopScore', function(sid) {
+		nspGame.connected[sid].emit('enable', sid);  //enables 2nd player
+		//disaples buttons for player waiting
+		//nspGame.connected[sid].emit("stop", socket.id, username, 1);
 		console.log("score saved");
 		var index = findIndex(gameclients, "sid", socket.id);
 		var username = gameclients[index].username;
-		nspGame.connected[sid].emit("stop", socket.id, username, 1);
+		//turn for next player
+		nspGame.emit('Player', sid, username);
+		
 	});
 	
 	socket.on('disconnect', function () {

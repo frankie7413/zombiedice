@@ -3,6 +3,9 @@ var socket;
 var main = function() {
 	"use strict";
 
+	var playersid,	//old player
+		currentsid;	//current player
+
 	///connect to this namespace 
 	socket = io('http://localhost:3000/ingame');
 	//socket = io('/ingame');
@@ -17,6 +20,11 @@ var main = function() {
 
 	});
 
+	$('#stop').click(function(){
+		//add up the brains 
+		socket.emit('stopScore', playersid);
+		socket.emit('stopOther', currentsid);
+	});
 
 	socket.on('dicerollresult', function(dices, images) {
 		console.log('data results received');
@@ -35,52 +43,6 @@ var main = function() {
 	    $("div.dice3_label").html(dices.dice30);
 
 	}); 
-
-	// function rollClicked(firstDice, secondDice, thirdDice) {
-
-	// 	var images = checkDice(firstDice, secondDice, thirdDice);
-
-	// 	$("div.dice1").text("Rolling...");
-	//     $("div.dice2").text("Rolling...");
-	//     $("div.dice3").text("Rolling...");
-
-
-	//     $("div.dice1").html(images[0]);
-	//     $("div.dice1_label").html(firstDice);
-	    
-	//     $("div.dice2").html(images[1]);
-	//     $("div.dice2_label").html(secondDice);
-
-	//     $("div.dice3").html(images[2]);
-	//     $("div.dice3_label").html(thirdDice);
-	// }
-
-
-	// function checkDice(firstDice, secondDice, thirdDice)
-	// {
-	// 	var array = [firstDice, secondDice, thirdDice];
-	// 	var arraylen = array.length;
-	// 	for(var i = 0; i < arraylen; i++){
-	// 		if(array[i] === "Brain"){
-	// 			array[i] = "<image src='images/brain_roll.jpg'>";
-	// 		}
-	// 		else if(array[i] === "Feet"){
-	// 			array[i] = "<image src='images/foot_roll.jpg'>";
-	// 		}
-	// 		else
-	// 		{
-	// 			array[i] = "<image src='images/shotgun_roll.jpg'>";
-	// 		}
-	// 	}
-
-	// 	return array;
-	// }
-
-
-
-	$('#stop').click(function(){
-       stop();
-    });
 	
 	//Login
 	$("#lobbyreturn").click(function() {
@@ -88,6 +50,7 @@ var main = function() {
 	});
 	
 	socket.on('handshake', function(sid, username, ret) {
+		playersid = sid;
 		console.log("handshake received from " + sid);
 		$("#opponentid").val(sid);
 		$("#opponentname").empty();
@@ -97,27 +60,43 @@ var main = function() {
 		}
 	});
 
+	//zombie challenge human -> human turn 
+	socket.on('Player', function(sid, username){
+		currentsid = sid;  //got the sid of current player 
+		$("div.turn").text("Turn: " + username);
+	});
 
 
-    $("div.turn").text("Turn: ");
+		//disable buttons for player who is waiting for his turn
+	socket.on('enable', function(sid) {
+		document.getElementById('roll').disabled = false;
+		document.getElementById('stop').disabled = false;
+		console.log('enable buttons ');
+	});
+
+
+	//disable buttons for player who is waiting for his turn
+	socket.on('disable', function(sid) {
+		document.getElementById('roll').disabled = true;
+		document.getElementById('stop').disabled = true;
+		console.log('disabled buttons');
+	});
+
+    //$("div.turn").text("Turn: ");
     $("div.brains").text("Brains: 1");
     $("div.shotguns").text("Shotguns: 1");
 }
 
 $(document).ready(main);
 
-// function roll () {
-    
-// };
-
-function stop () {
-	socket.on('stop', function(sid, username, ret) {
+// function stop () {
+// 	socket.on('stop', function(sid, username, ret) {
 		
-		var brains = 5;
-		$("div.brains").text("Brains: " + brains);
+// 		var brains = 5;
+// 		$("div.brains").text("Brains: " + brains);
 
-		if (ret === 0) {
-			socket.emit("stop and score", sid, brains);
-		}
-	});
-};
+// 		if (ret === 0) {
+// 			socket.emit("stop and score", sid, brains);
+// 		}
+// 	});
+// };
