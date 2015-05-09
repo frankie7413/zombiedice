@@ -324,11 +324,10 @@ nspGame.on ('connection', function(socket) {
 		nspGame.connected[sid].emit("handshake", socket.id, username, 1);
 	});
 
-
 	socket.on('diceroll', function(data){
 		console.log('dice json recieved');
 		var images = checkDice(data.dice10, data.dice20, data.dice30);
-		nspGame.emit('dicerollresults', data, images);
+		nspGame.emit('dicerollresult', data, images);
 	});
 
 	socket.on('stop and score', function(sid) {

@@ -5,6 +5,7 @@ var main = function() {
 
 	///connect to this namespace 
 	socket = io('http://localhost:3000/ingame');
+	//socket = io('/ingame');
 
 	$('#roll').click(function(){
 		console.log('roll click works');
