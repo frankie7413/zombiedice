@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html lang='en'>
+    <head>
+    <meta charset='utf-8'>
+    <title>Zombie Dice</title>
+    <link href="stylesheets/style.css" rel="stylesheet">
+    </head>
+    
+    <body>
+    <header>
+	<div id="titleimage">
+		<img src="images/logo2.png" width="409" height="81" alt=""/>
+	</div>
+    </header>
+    
+
+    <container>
+
+    <div id="userinfo">
+	<center><h2>Welcome <div id="username" ></div></h2></center>
+	<center><h3>Current Record</h3></center>
+	<center><h3>Wins: <div id="wins"></div>  Losses: <div id="losses"></div></h3></center>
+	<center><button type="button" class="btn" id="Logoff">Log Off</button></center>
+	<center><p>New to the game? Click 
+        <a href = "javascript:void(0)" 
+        onclick = "document.getElementById('light').style.display='block';
+                    document.getElementById('fade').style.display='block'"
+                    >here</a> for the rules</p></center>
+
+    <div id="light" class="white_content">
+
+        <center><h2>Eat brains. Don’t get shotgunned.</h2></center>
+
+        <p>This game includes these rules, 13 dice, and a cup to hold them. 
+        You’ll need some way to keep score. Two or more can play.</p>
+
+        <p>The first player is the one who won the last game, or 
+        the one who can say “Braaaaains!” with the most feeling.</p>
+
+        <p>On your turn, shake the cup, take three dice from it without looking, 
+        and roll them. Each one is a human victim. The red dice are the toughest. 
+        Green are easiest, and yellow are medium tough.</p>
+
+        <center><p>The dice have three symbols:</p></center>
+        <center><img src="images/brain_roll.jpg"></center>
+        <ul>
+            <li><b>Brain</b> – you ate your victim’s brain. Set your Brain dice to your left.</li>
+            <li><b>Shotgun</b> – he fought back! Set your Shotgun dice to your right.</li>
+            <li><b>Footprints</b> – your victim escaped. Keep your Feet dice in
+            front of you. If you choose to roll again, you will re-roll these
+            dice, along with enough new ones to bring the total to three. </li>
+        </ul>
+
+        <p>If you rolled three shotguns, your turn is over. Otherwise,
+        you can choose to stop and score, or continue.</p>
+        <p>If you decide to <b>stop</b>, score 1 for each Brain you have, and put all the 
+        dice back into the cup. It’s the next player’s turn.</p>
+        <p>If you choose to <b>keep going</b>, leave all your Feet on the table. Unless all 
+        three of your dice are Feet, take enough random new dice from the cup to total three, 
+        and roll again. Whenever you roll, you will roll three dice at a time. </p>
+
+        <p>After you take new dice, you can’t decide to stop . . . you have to roll.
+        Set aside Brains and Shotguns as above. If you are up to 3 Shotguns, your
+        turn is over and you score <b>nothing</b>. Otherwise, you can stop and score, or take another roll . . .</p>
+
+        </p>If you don’t have three dice left in the cup, make a note of how many
+        Brains you have and put them all in the cup (keep the Shotguns in front of
+        you). Then continue.<p/>
+
+        <p>Play until someone reaches 13 Brains. Then finish the round. Whoever
+        has the most Brains at the end of that round is the winner. If there’s a tie, 
+        the leaders (only) play a tiebreaker round.</p>
+
+        <br>
+        <center>
+            <a href = "javascript:void(0)" 
+            onclick = "document.getElementById('light').style.display='none';
+            document.getElementById('fade').style.display='none'"
+            >Back</a>
+        </center>
+    </div>
+    </div>
+    
+<div id="available">
+	<select id="onlineplayers" size=28></select>
+	<button id="btnChallenge">Challenge</button>
+	<!--<button id="testbutton">Test</button>-->
+</div>
+
+<div id="challengepopup" class="popups">
+	<form action="#" id="form" method="post" name="form">
+		<h2>Your have been challenged by <div id="challenger">player</div></h2>
+		<input type="hidden" id="challengeid" value="">
+		<button type="button" class="formbutton" id="chAccept">Accept</button>
+		<button type="button" class="formbutton" id="chDecline">Decline</button><br>
+	<form>
+</div>
+
+<div id="waitingpopup" class="popups">
+	<form action="#" id="form" method="post" name="form">
+		<h2>Awaiting reply</h2>
+	<form>
+</div>
+
+<div id="declinedpopup" class="popups">
+	<form action="#" id="form" method="post" name="form">
+		<h2>Your challenge has been declined.</h2>
+		<button type="button" class="formbutton" id="btnDeclineClose">Close</button><br>
+	<form>
+</div>
+</container>
+    
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="javascripts/lobby.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    </body>
+    </html>
+

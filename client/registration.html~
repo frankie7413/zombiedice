@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <title>Zombie Dice</title>
+    <link href="stylesheets/style.css" rel="stylesheet">
+    </head>
+    
+    <body>
+    
+    <header>
+    	<div id="titleimage">
+    		<img src="images/logo2.png" width="409" height="81" alt=""/>
+    	</div>
+    </header>
+    
+    <container>
+    <div id="registrationarea">
+    	<h2>Registration</h2>
+        <form action="/register" method="post" name="registration" id="login_id" class="form_class" >
+            <div>
+            <label>Username: </label><input type="text" name="username" id="username" placeholder="username" /><br>
+            <label>Password: </label><input type="password" name="password" id="password" placeholder="password" /><br>
+            <label>Reenter Password:</label><input type="password" name="password2" id="password2" placeholder="password" /><br>
+            <label>Email: </label><input type="text" name="email" id="email" placeholder="email" /><br>
+            </div>
+              <br>
+              <br>
+              <input type="submit" value="Register"/>
+              <a href="index.html">Cancel</a>
+        </form>
+    </div>
+    </container>
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    </body>
+</html>

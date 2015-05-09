@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>Zombie Dice</title>
+<link href="stylesheets/style.css" rel="stylesheet">
+</head>
+    
+<body>
+	<header>
+		<div id="titleimage">
+			<img src="images/logo2.png" width="409" height="81" alt=""/>
+		</div>
+	</header>
+    
+
+	<container>
+	<h3>Playing against<div id="opponentname">player</div></h3>
+	<input type="hidden" id="opponentid" value="">
+
+
+	<center>
+        <form action="#" method="post" name="form_name" id="form_id" class="form_class" >
+            <input class="btn" type="button" name="roll_id" id="roll" value="Roll"/>
+            <input class="btn" type="button" name="stop_id" id="stop" value="Stop and Score"/>
+        </form>
+        <br>
+    </center>
+	<div class="DiceTable" >
+            <table >
+                <tr>
+                    <td>
+                        <div class="dice1"></div>
+                    </td>
+                    <td >
+                        <div class="dice2"></div>
+                    </td>
+                    <td >
+                        <div class="dice3"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="dice1_label"></div>
+                    </td>
+                    <td>
+                        <div class="dice2_label"></div>
+                    </td>
+                    <td >
+                        <div class="dice3_label"></div>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <div class="turn"></div>
+                        <br>
+                        <div class="brains"></div>
+                        <br>
+                        <div class="shotguns"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+	<button type="button" id="lobbyreturn">Return To Lobby</button>
+
+	</container>
+    
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="javascripts/gameboard.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
