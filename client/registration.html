@@ -8,35 +8,34 @@
     
     <body>
     
-    <header>
-    	<div id="titleimage">
-    		<img src="images/logo2.png" width="409" height="81" alt=""/>
-    	</div>
-    </header>
+    
     
     <main>
-    <div id="registrationarea">
-    <form action="#" id="regform" method="post" name="regform">
-    	<h2>Registration</h2>
-            <div>
-            <label>Username: </label><input type="text" name="username" id="username" placeholder="username" /><br>
-            <label>Password: </label><input type="password" name="password" id="password" placeholder="password" /><br>
-            <label>Reenter Password:</label><input type="password" name="password2" id="password2" placeholder="password" /><br>
-            <label>Email: </label><input type="text" name="email" id="email" placeholder="email" /><br>
-            </div>
-              <br>
-              <br>
-              <button type="button" class="btn" id="RegSubmit">Register</button>
-	      <button type="button" class="btn" id="RegCancel">Cancel</button>
-              <!-- <a href="index.html">Cancel</a> -->
-    </form>
+    <center>
+    <div id="registrationarea" class="login">
+        <h1><image src='images/logo2.png'></image></h1><br><br>
+        <center><h2>Registration</h2></center>
+        <form action="#" id="regform" method="post" name="regform" class="form_class">
+                <div>
+                <input type="text" name="username" id="username" placeholder="username" class="form-control"/><br>
+                <input type="password" name="password" id="password" placeholder="password" class="form-control"/><br>
+                <input type="password" name="password2" id="password2" placeholder="password" class="form-control"/><br>
+                <input type="text" name="email" id="email" placeholder="email" class="form-control"/><br>
+                </div>
+                  <br>
+                  <br>
+                  <button type="button" class="btn" id="RegSubmit">Register</button>
+    	      <button type="button" class="btn" id="RegCancel">Cancel</button>
+                  <!-- <a href="index.html">Cancel</a> -->
+        </form>
     </div>
+    </center>
     
-    <div id="regSuccessful">
+    <center><div id="regSuccessful">
     <h2>Registration Successful</h2>
     <p>Welcome to Zombie Dice, please log in.</p>
     <button type="button" class="" id="Login">Log In</button>
-    </div>
+    </div></center>
     </main>
 
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>

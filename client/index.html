@@ -7,33 +7,35 @@
     </head>
     
     <body>
-    <div id="titleimage">
-    	<img src="images/logo2.png" width="409" height="81" alt=""/>
-    </div>
+        <center>
+        <div id="loginarea" class="login">
+        	<h1><image src='images/logo2.png'></image></h1><br><br>
+            <center><h2>Please login to play</h2></center>
+        	<div id="wrongunpw">
+        		<p>Wrong Username/Password</p>
+        	</div>
+            <!-- <p>Wrong Username/Password</p> -->
+            <form action="#" method="post" name="login" id="login_id" class="form_class" >
+                <!-- <label>Username -->
+                <input type="text" name="username" id="username" placeholder="username" class="form-control"/>
+                <!-- <label>Password  -->
+		<br>
+                <input type="password" name="password" id="password" placeholder="password" class="form-control"/><br>
+                <input class="btn" type="button" name="login" id="loginsubmit" value="Login" />
+                <a href="registration.html">Register</a>
+            </form>
+        </div>
+        </center>
+        <!-- </div> -->
     
-    <div id="loginarea">
-    	<h2>Please login to play</h2>
-	<div id="wrongunpw">
-		<p>Wrong Username/Password</p>
-	</div>
-        <form action="#" method="post" name="login" id="login_id" class="form_class" >
-            <label>Username
-            <input type="text" name="username" id="username" placeholder="username" /><br>
-            <label>Password 
-            <input type="password" name="password" id="password" placeholder="password" /><br><br>
-            <input class="btn" type="button" name="login" id="loginsubmit" value="Login" />
-            <a href="registration.html">Register</a>
-        </form>
-    </div>
-    
-    <div id="homepageimage">
-        <center><p>New to the game? Click 
-        <a href = "javascript:void(0)" 
-        onclick = "document.getElementById('light').style.display='block';
-                    document.getElementById('fade').style.display='block'"
-                    >here</a> for the rules</p></center>
+        <div id="homepageimage">
+            <center><p>New to the game? Click 
+            <a href = "javascript:void(0)" 
+            onclick = "document.getElementById('light').style.display='block';
+                        document.getElementById('fade').style.display='block'"
+                        >here</a> for the rules</p></center>
 
-    <div id="light" class="white_content">
+            <div id="light" class="white_content">
 
         <center><h2>Eat brains. Don’t get shotgunned.</h2></center>
 
@@ -48,7 +50,7 @@
         Green are easiest, and yellow are medium tough.</p>
 
         <center><p>The dice have three symbols:</p></center>
-        <center><img src="images/brain_roll.jpg"></center>
+        <center><img src="images/brain_roll.png"></center>
         <ul>
             <li><b>Brain</b> – you ate your victim’s brain. Set your Brain dice to your left.</li>
             <li><b>Shotgun</b> – he fought back! Set your Shotgun dice to your right.</li>

@@ -4,28 +4,36 @@
     <meta charset='utf-8'>
     <title>Zombie Dice</title>
     <link href="stylesheets/style.css" rel="stylesheet">
+    <style> 
+
+    </style>
     </head>
     <body>
-    <h1><center><image src='images/logo2.png'></image></center></h1>
-    <h2><center><a href='index.html'>Home</a> - <a href='scores.html'>High Scores</a> - <a href='login.html'>Login</a></center></h2>
+        <div class="login">
+            <!-- <div class="heading"> -->
+            <h1><image src='images/logo2.png'></image></h1>
+            <h2><center><a href='index.html'>Home</a> - <a href='scores.html'>High Scores</a> - <a href='login.html'>Login</a></center></h2>
 
-    <h3><center>Please login to play</center></h3>
-        <center>
-        <form action="#" method="post" name="login" id="login_id" class="form_class" >
-            <label>Username 
-            <input type="text" name="username" id="username" placeholder="username" />
-            <label>Password 
-            <input type="password" name="password" id="password" placeholder="" /><br><br>
-            <input class="btn" type="button" name="login" id="btn_id" value="Login" onclick="login()"/>
-        </form>
-        </center>
+            <h2><center>Please login to play</center></h2>
+            <center>
+                <form action="#" method="post" name="login" id="login_id" class="form_class" >
+                    <!-- <label>Username  -->
+                    <input type="text" name="username" id="username" placeholder="username" class="form-control"/>
+			<br>
+                    <!-- <label>Password  -->
+                    <input type="password" name="password" id="password" placeholder="password" class="form-control"/><br>
+                    <input class="btn" type="button" name="login" id="btn_id" value="Login" onclick="login()"/>
+                </form>
+             </center>
+            <!-- </div> -->
+        </div>
     
 
-    <center><p>New to the game? Click 
+    <center><h3><p>New to the game? Click 
         <a href = "javascript:void(0)" 
         onclick = "document.getElementById('light').style.display='block';
                     document.getElementById('fade').style.display='block'"
-                    >here</a> for the rules</p></center>
+                    >here</a> for the rules</p></h3></center>
 
     <div id="light" class="white_content">
 
@@ -42,7 +50,7 @@
         Green are easiest, and yellow are medium tough.</p>
 
         <center><p>The dice have three symbols:</p></center>
-        <center><img src="images/brain_roll.jpg"></center>
+        <center><img src="images/brain_roll.png"></center>
         <ul>
             <li><b>Brain</b> – you ate your victim’s brain. Set your Brain dice to your left.</li>
             <li><b>Shotgun</b> – he fought back! Set your Shotgun dice to your right.</li>

@@ -1,6 +1,8 @@
 function newRegistration() {
 	var username, pw1, pw2, email, reginfo;
 
+	var format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 	username = $("#registrationarea #username").val();
 	pw1 = $("#registrationarea #password").val();
 	pw2 = $("#registrationarea #password2").val();
@@ -10,8 +12,8 @@ function newRegistration() {
 		alert("Username cannot be empty");
 	} else if (pw1 === "" || pw2 === "") {
 		alert("Password cannot be empty");
-	} else if (email === "") {
-		alert("Email cannot be empty");
+	} else if (!email.match(format)) {
+		alert("Please enter your email correctly");
 	} else if (pw1 !== pw2) {
 		alert("Passwords must match");
 	} else {

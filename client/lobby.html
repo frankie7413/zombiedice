@@ -7,19 +7,19 @@
     </head>
     
     <body>
-    <header>
-	<div id="titleimage">
-		<img src="images/logo2.png" width="409" height="81" alt=""/>
-	</div>
-    </header>
-    
+	<br><br>
+    <center><h1><image src='images/logo2.png'></image></h1></center>
+    	<br><br>
 
     <container>
 
     <div id="userinfo">
+	<br><br>
 	<center><h2>Welcome <div id="username" ></div></h2></center>
+	<br>
 	<center><h3>Current Record</h3></center>
 	<center><h3>Wins: <div id="wins"></div>  Losses: <div id="losses"></div></h3></center>
+	<br>
 	<center><button type="button" class="btn" id="Logoff">Log Off</button></center>
 	<center><p>New to the game? Click 
         <a href = "javascript:void(0)" 
@@ -42,7 +42,7 @@
         Green are easiest, and yellow are medium tough.</p>
 
         <center><p>The dice have three symbols:</p></center>
-        <center><img src="images/brain_roll.jpg"></center>
+        <center><img src="images/brain_roll.png"></center>
         <ul>
             <li><b>Brain</b> – you ate your victim’s brain. Set your Brain dice to your left.</li>
             <li><b>Shotgun</b> – he fought back! Set your Shotgun dice to your right.</li>
@@ -83,29 +83,34 @@
     
 <div id="available">
 	<select id="onlineplayers" size=28></select>
-	<button id="btnChallenge">Challenge</button>
+	<br><br>
+	<center><button id="btnChallenge">Challenge</button></center>
 	<!--<button id="testbutton">Test</button>-->
 </div>
 
 <div id="challengepopup" class="popups">
 	<form action="#" id="form" method="post" name="form">
+		<center>
 		<h2>Your have been challenged by <div id="challenger">player</div></h2>
 		<input type="hidden" id="challengeid" value="">
 		<button type="button" class="formbutton" id="chAccept">Accept</button>
 		<button type="button" class="formbutton" id="chDecline">Decline</button><br>
+		</center>
 	<form>
 </div>
 
 <div id="waitingpopup" class="popups">
 	<form action="#" id="form" method="post" name="form">
-		<h2>Awaiting reply</h2>
+		<center><h2>Awaiting reply</h2></center>
 	<form>
 </div>
 
 <div id="declinedpopup" class="popups">
 	<form action="#" id="form" method="post" name="form">
+		<center>
 		<h2>Your challenge has been declined.</h2>
 		<button type="button" class="formbutton" id="btnDeclineClose">Close</button><br>
+		</center>
 	<form>
 </div>
 </container>
